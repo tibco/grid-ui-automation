@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project basedir="." default="runtests" name="TestAutomation">
+
+	<property name="browser" value="C:/Program Files (x86)/Google/Chrome/Application/chrome.exe" />
+	<property name="bin.dir" value="${basedir}/bin" />
+	<property name="lib.dir" value="${basedir}/lib" />
+	<property name="server.dir" value="${basedir}/server" />
+	<property name="src.dir" value="${basedir}/src" />
+	<property name="output.dir" value="${basedir}/test-output" />
+	<property file="resources/webdrivertestrunner.properties" />
+	<!--property name="testng.suite.file" value="testng.xml" /-->
+	<property file="resources/seleniumtestrunner.properties" />
+	<property name="testng.suite.file" value="${testng.suite.file}" />
+	<property name="properties.file" value="${properties.file}" />
+	<property file="resources/application.properties" />
+	<property environment="env" />
+	<property name="debuglevel" value="source,lines,vars" />
+	<property name="target" value="1.8" />
+	<property name="source" value="1.8" />
+	<property name="invocation.sufix" value="" />
+
+	<tstamp>
+		<format property="run.time" pattern="yyyy_MM_dd_hh_mm" />
+	</tstamp>
+
+	<path id="seleniumautomation.classpath">
+		<pathelement path="${lib.dir}" />
+		<fileset dir="${lib.dir}">
+			<include name="*.jar" />
+			<include name="**/*.jar" />
+		</fileset>
+		<fileset dir="${basedir}/server">
+			<include name="*.jar" />
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+
+	<taskdef resource="net/sf/antcontrib/antcontrib.properties" classpathref="seleniumautomation.classpath">
+	</taskdef>
+
+	<target name="init">
+		<mkdir dir="bin" />
+		<copy includeemptydirs="false" todir="${bin.dir}">
+			<fileset dir="${src.dir}">
+				<exclude name="**/*.ucls" />
+				<exclude name="**/*.java" />
+			</fileset>
+		</copy>
+	</target>
+	<target name="clean">
+		<delete dir="bin" />
+		<delete file="${lib.dir}/selenium-test.jar" failonerror="false">
+		</delete>
+	</target>
+	<target depends="build-project" name="build" />
+	<target depends="init" name="build-project">
+		<echo message="${ant.project.name}: ${ant.file}" />
+		<javac debug="true" destdir="${bin.dir}" source="${source}" target="${target}" includeantruntime="false">
+			<src path="${src.dir}" />
+			<classpath refid="seleniumautomation.classpath" />
+		</javac>
+	</target>
+
+	<!-- =================================
+              target: make-jar
+             ================================= -->
+	<target name="make-jar" depends="clean, build-project" description="Jar test classes">
+		<jar destfile="${lib.dir}/selenium-test.jar" basedir="${bin.dir}" />
+	</target>
+	<target name="gendoc">
+		<javadoc packagenames="com.**.test.*" sourcepath="${src.dir}" destdir="docs/tests" verbose="true" author="true" version="true" use="true" windowtitle="Test Automation API" classpathref="seleniumautomation.classpath">
+			<doctitle>
+				<![CDATA[<h1>Test Automation API</h1>]]></doctitle>
+		<bottom>
+			<![CDATA[<i>Copyright &#169; Tibco Software. All Rights Reserved.</i>]]></bottom>
+</javadoc>
+</target>
+
+<target name="stop-server">
+<exec executable="${server.dir}/killTasks.bat" spawn="false" />
+
+</target>
+
+<target name="start-server">
+<echo>basedir : ${basedir}</echo>
+<echo>server.dir : ${server.dir}</echo>
+<parallel failonany="true">
+	<sequential>
+		<exec executable="cmd" spawn="true">
+			<arg value="/c" />
+			<arg value="java -Dwebdriver.chrome.driver=server/chromedriver.exe -jar server/selenium-server-standalone-3.9.1.jar" />
+		</exec>
+	</sequential>
+	<sequential>
+		<waitfor checkevery="10" checkeveryunit="second" maxwait="1" maxwaitunit="minute">
+			<socket server="${server.host}" port="${server.port}" />
+		</waitfor>
+	</sequential>
+</parallel>
+</target>
+
+<target name="runtests" depends="make-jar">
+<antcall target="start-server" />
+<echo>${testng.suite.file}</echo>
+<echo>${test.results.dir}</echo>
+<echo>${invocation.sufix}</echo>
+<if>
+	<equals arg1="${build.id}" arg2="${BUILD_ID}" />
+	<then>
+		<var name="output.dir" value="${test.results.dir}/${build.id}" />
+	</then>
+	<else>
+		<var name="output.dir" value="${test.results.dir}/${run.time}${invocation.sufix}" />
+	 </else>
+</if>
+<!--var name="output.dir" value="${test.results.dir}/${run.time}${invocation.sufix}" /-->
+
+<taskdef resource="testngtasks" classpathref="seleniumautomation.classpath" />
+<testng classpathref="seleniumautomation.classpath" outputDir="${output.dir}" useDefaultListeners="true" listeners="org.uncommons.reportng.HTMLReporter,com.tibco.automation.common.listeners.Listeners,com.tibco.automation.common.listeners.MyReporterListener,org.uncommons.reportng.JUnitXMLReporter">
+
+	<!--xmlfileset dir="${test.conf.dir}" includes="${testng.suite.file}" /-->
+	<xmlfileset file="test-config-files/${testng.suite.file}" erroronmissingdir="false" />
+	<jvmarg value="-ea" />
+	<sysproperty key="org.uncommons.reportng.title" value="${report.title}" />
+	<sysproperty key="org.uncommons.reportng.escape-output" value="false" />
+	<sysproperty key="timestamp" value="${run.time}" />
+	<sysproperty key="report.dir" value="${output.dir}/html" />
+	<sysproperty key="report.screenshots.dir" value="${output.dir}/html/img" />
+	<sysproperty key="resources.dir" value="./resources" />
+	<sysproperty key="log4j.configuration" value="file:///${lib.dir}/log4j.properties" />
+	<sysproperty key="webdriver.ie.driver" value="${server.dir}/IEDriverServer.exe" />
+	<sysproperty key="properties.file" value="${properties.file}" />
+	<sysproperty key="webdriver.chrome.driver" value="${server.dir}/chromedriver.exe" />
+	<sysproperty key="webdriver.gecko.driver" value="${server.dir}/geckodriver.exe" />
+	<sysproperty key="build.id" value="${BUILD_ID}" />
+	<propertyset>
+		<propertyref builtin="commandline" />
+	</propertyset>
+
+</testng>
+<antcall target="stop-server" />
+<available file="${output.dir}/html/index.html" type="file" property="result.present" />
+<antcall target="openReport" />
+</target>
+<target name="openReport" if="result.present">
+	<exec executable="${browser}" spawn="yes"></exec>
+<exec executable="${browser}" spawn="yes">
+	<arg line="'${output.dir}\html\index.html'" />
+</exec>
+</target>
+
+</project>
