@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Suite1" verbose="1">
+
+
+
+<!-- <test name="Service Diagnostics">
+		<packages>
+			<package name="com.tibco.automation.common"/>
+			<package name="com.tibco.automation.page"/>
+		</packages> 
+		<classes>
+		<class name="com.tibco.automation.test.gsui.diagnostics.ServiceDiagnostics"/>
+		</classes>
+	</test> 
+
+	 <test name="Manager Import/Export">
+		<packages>
+			<package name="com.tibco.automation.common"/>
+			<package name="com.tibco.automation.page"/>
+		</packages>
+		<classes>
+		<class name="com.tibco.automation.test.gsui.systemadmin.ManagerImportExport"/>
+		</classes>
+	</test>	
+
+
+<test name="Report">
+		<packages>
+			<package name="com.tibco.automation.common"/>
+			<package name="com.tibco.automation.page"/> 
+		</packages>
+		<classes>
+		<class name="com.tibco.automation.test.gsui.services.services.Report"/>
+		</classes>
+	</test>
+		 <test name="Users">
+		<packages>
+			<package name="com.tibco.automation.common"/>
+			<package name="com.tibco.automation.page"/>
+		</packages>
+		<classes>
+		<class name="com.tibco.automation.test.gsui.usersadmin.users.Users"/>
+		</classes>
+	</test>
+	 <test name="Grid Libraries">
+		<packages>
+			<package name="com.tibco.automation.common"/>
+			<package name="com.tibco.automation.page"/> 
+		</packages>
+		<classes>
+		<class name="com.tibco.automation.test.gsui.services.services.GridLibraries"/>
+		</classes>
+	</test> 
+<test name="Manager Diagnostics">
+		<packages>
+			<package name="com.tibco.automation.common"/>
+			<package name="com.tibco.automation.page"/>
+		</packages>
+		<classes>
+		<class name="com.tibco.automation.test.gsui.diagnostics.ManagerDiagnostics"/>
+		</classes>
+	</test>
+	
+	<test name="Real Time Log">
+		<packages>
+			<package name="com.tibco.automation.common"/>
+			<package name="com.tibco.automation.page"/>
+		</packages>
+		<classes>
+		<class name="com.tibco.automation.test.gsui.diagnostics.RealTimeLog"/>
+		</classes>
+	</test> 
+<test name="Daemon Admin">
+		<packages>
+			<package name="com.tibco.automation.common"/>
+			<package name="com.tibco.automation.page"/>
+		</packages>
+		<classes>
+		<class name="com.tibco.automation.test.gsui.gridcomponents.engines.DaemonAdmin"/>
+		</classes>
+	</test>
+	
+	<test name="Service Types">
+		<packages>
+			<package name="com.tibco.automation.common"/>
+			<package name="com.tibco.automation.page"/>
+		</packages>
+		<classes>
+		<class name="com.tibco.automation.test.gsui.services.services.ServiceTypes"/>
+		</classes>
+	</test>
+
+ 
+<test name="Service Session Admin">
+		<packages>
+			<package name="com.tibco.automation.common"/>
+			<package name="com.tibco.automation.page"/>
+		</packages>
+		<classes>
+		<class name="com.tibco.automation.test.gsui.services.services.ServiceSessionAdmin"/>
+		</classes>
+	</test>
+
+<test name="Manager Hooks">
+		<packages>
+			<package name="com.tibco.automation.common"/>
+			<package name="com.tibco.automation.page"/>
+		</packages>
+		<classes>
+		<class name="com.tibco.automation.test.gsui.systemadmin.ManagerHooks"/>
+		</classes>
+	</test>
+
+<test name="Batch Schedule">
+		<packages>
+			<package name="com.tibco.automation.common"/>
+			<package name="com.tibco.automation.page"/>
+		</packages>
+		<classes>
+		<class name="com.tibco.automation.test.gsui.services.batch.BatchSchedule"/>
+		</classes>
+	</test>
+
+
+	
+  <test name="Scheduler Instrumentation">
+		<packages>
+			<package name="com.tibco.automation.common"/>
+			<package name="com.tibco.automation.page"/>
+		</packages> 
+		<classes>
+		<class name="com.tibco.automation.test.gsui.diagnostics.SchedulerInstrumentation"/>
+		</classes>
+	</test>
+	
+  <test name="Overview">
+		<packages>
+			<package name="com.tibco.automation.common"/>
+			<package name="com.tibco.automation.page"/>
+		</packages> 
+		<classes>
+		<class name="com.tibco.automation.test.gsui.dashboard.Overview"/>
+		</classes>
+	</test> 
+	
+	  <test name="Director Monitor">
+		<packages>
+			<package name="com.tibco.automation.common"/>
+			<package name="com.tibco.automation.page"/>
+		</packages> 
+		<classes>
+		<class name="com.tibco.automation.test.gsui.dashboard.DirectorMonitor"/>
+		</classes>
+	</test>
+	 
+	<test name="Broker Monitor">
+		<packages>
+			<package name="com.tibco.automation.common"/>
+			<package name="com.tibco.automation.page"/>
+		</packages> 
+		<classes>
+		<class name="com.tibco.automation.test.gsui.dashboard.BrokerMonitor"/>
+		</classes>
+	</test>
+​
+	 <test name="Broker Admin">
+		<packages>
+			<package name="com.tibco.automation.common"/>
+			<package name="com.tibco.automation.page"/>
+		</packages>
+		<classes>
+	  	<class name="com.tibco.automation.test.gsui.gridcomponents.brokers.BrokerAdmin"/>
+		</classes>
+	</test>	
+	  <test name="Broker Configuration">
+		<packages>
+			<package name="com.tibco.automation.common"/>
+			<package name="com.tibco.automation.page"/>
+		</packages>
+		<classes>
+		<class name="com.tibco.automation.test.gsui.gridcomponents.brokers.BrokerConfiguration"/>
+		</classes>
+	</test>
+	
+ 	<test name="Broker Routing">
+		<packages>
+			<package name="com.tibco.automation.common"/>
+			<package name="com.tibco.automation.page"/>
+		</packages>
+		<classes>
+		<class name="com.tibco.automation.test.gsui.gridcomponents.brokers.BrokerRouting"/>
+		</classes>
+	</test>
+	
+	  <test name="Driver Admin">
+		<packages>
+			<package name="com.tibco.automation.common"/>
+			<package name="com.tibco.automation.page"/>
+		</packages>
+		<classes>
+		<class name="com.tibco.automation.test.gsui.gridcomponents.drivers.DriverAdmin"/>
+		</classes>
+	</test>
+	
+	<test name="Web Services">
+		<packages>
+			<package name="com.tibco.automation.common"/>
+			<package name="com.tibco.automation.page"/>
+		</packages>
+		<classes>
+		<class name="com.tibco.automation.test.gsui.gridcomponents.drivers.WebServices"/>
+		</classes>
+	</test>
+	
+	<test name="Engine Configuration">
+		<packages>
+			<package name="com.tibco.automation.common"/>
+			<package name="com.tibco.automation.page"/>
+		</packages>
+		<classes>
+		 <class name="com.tibco.automation.test.gsui.gridcomponents.engines.EngineConfiguration"/> 
+		</classes>
+	</test>
+	
+	<test name="Engine Properties">
+		<packages>
+			<package name="com.tibco.automation.common"/>
+			<package name="com.tibco.automation.page"/>
+		</packages>
+		<classes> 
+		  <class name="com.tibco.automation.test.gsui.gridcomponents.engines.EngineProperties"/>
+		</classes>
+	</test>
+	
+	  <test name="Engine Admin">
+		<packages>
+			<package name="com.tibco.automation.common"/>
+			<package name="com.tibco.automation.page"/>
+		</packages>
+		<classes> 
+		  <class name="com.tibco.automation.test.gsui.gridcomponents.engines.EngineAdmin"/>
+		</classes>
+	</test>
+	<test name="Batch Definition">
+		<packages>
+			<package name="com.tibco.automation.common"/>
+			<package name="com.tibco.automation.page"/> 
+		</packages>
+		<classes>
+		<class name="com.tibco.automation.test.gsui.services.batch.BatchDefinition"/>
+		</classes>
+	</test>
+	
+	  <test name="Batch Admin">
+		<packages>
+			<package name="com.tibco.automation.common"/>
+			<package name="com.tibco.automation.page"/> 
+		</packages>
+		<classes>
+		<class name="com.tibco.automation.test.gsui.services.batch.BatchAdmin"/>
+		</classes>
+	</test> 
+	
+	
+	  <test name="Service Runner">
+		<packages>
+			<package name="com.tibco.automation.common"/>
+			<package name="com.tibco.automation.page"/> 
+		</packages>
+		<classes>
+		<class name="com.tibco.automation.test.gsui.services.batch.ServiceRunner"/>
+		</classes>
+	</test>
+	 -->
+	 <!-- 
+	<test name="Cache Schema">
+		<packages>
+			<package name="com.tibco.automation.common"/>
+			<package name="com.tibco.automation.page"/> 
+		</packages>
+		<classes>
+		<class name="com.tibco.automation.test.gsui.services.services.CacheSchema"/>
+		</classes>
+	</test>
+	
+		 
+	<test name="Service Session Admin">
+		<packages>
+			<package name="com.tibco.automation.common"/>
+			<package name="com.tibco.automation.page"/>
+		</packages>
+		<classes>
+		<class name="com.tibco.automation.test.gsui.services.services.ServiceSessionAdmin"/>
+		</classes>
+	</test>
+	 <test name="Manager Configuration">
+		<packages>
+			<package name="com.tibco.automation.common"/>
+			<package name="com.tibco.automation.page"/>
+		    <package name="com.tibco.automation.test.gsui.systemadmin.managerconfiguration" />
+		</packages>
+	</test>
+	
+	<test name="Email Notifications">
+		<packages>
+			<package name="com.tibco.automation.common"/>
+			<package name="com.tibco.automation.page"/>
+		</packages>
+		<classes>
+		<class name="com.tibco.automation.test.gsui.systemadmin.EmailNotifications"/>
+		</classes>
+	</test>
+
+	
+	 
+	 <test name="Manager Reinstall">
+		<packages>
+			<package name="com.tibco.automation.common"/>
+			<package name="com.tibco.automation.page"/>
+		</packages>
+		<classes>
+		<class name="com.tibco.automation.test.gsui.systemadmin.Manager_Reinstall"/>
+		</classes>
+	</test> 
+	
+	
+	 <test name="RunAs">
+		<packages>
+			<package name="com.tibco.automation.common"/>
+			<package name="com.tibco.automation.page"/>
+		</packages>
+		<classes>
+		<class name="com.tibco.automation.test.gsui.usersadmin.users.RunAs"/>
+		</classes>
+	</test>
+	
+	  <test name="Authentication">
+		<packages>
+			<package name="com.tibco.automation.common"/>
+			<package name="com.tibco.automation.page"/>
+		</packages>
+		<classes>
+		<class name="com.tibco.automation.test.gsui.usersadmin.users.Authentication"/>
+		</classes>
+	</test>
+	
+	 
+	<test name="Service Test">
+		<packages>
+			<package name="com.tibco.automation.common"/>
+			<package name="com.tibco.automation.page"/> 
+		</packages>
+		<classes>
+		<class name="com.tibco.automation.test.gsui.services.services.ServiceTest"/>
+		</classes>
+	</test>
+	
+	<test name="Service Conditions">
+		<packages>
+			<package name="com.tibco.automation.common"/>
+			<package name="com.tibco.automation.page"/> 
+		</packages>
+		<classes>
+		<class name="com.tibco.automation.test.gsui.services.services.ServiceConditions"/>
+		</classes>
+	</test>
+	
+	
+	
+
+   	
+	
+	 <test name="Roles">
+		<packages>
+			<package name="com.tibco.automation.common"/>
+			<package name="com.tibco.automation.page"/>
+		</packages>
+		<classes>
+		<class name="com.tibco.automation.test.gsui.usersadmin.users.Roles"/>
+		</classes>
+	</test>
+	
+	
+	<test name="SNMP Event Traps">
+		<packages>
+			<package name="com.tibco.automation.common"/>
+			<package name="com.tibco.automation.page"/>
+		</packages>
+		<classes>
+		<class name="com.tibco.automation.test.gsui.systemadmin.SNMP_Event_Traps"/>
+		</classes>
+	</test>
+	
+	  <test name="Grid Architecture">
+		<packages>
+			<package name="com.tibco.automation.common"/>
+			<package name="com.tibco.automation.page"/>
+		      <package name="com.tibco.automation.test.gsui.gridarchitecture" />   	
+		</packages>
+		
+	</test> -->
+
+</suite>
