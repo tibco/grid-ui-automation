@@ -1,0 +1,4 @@
+create queue sf_queue.sample2990queue
+create topic sf_topic.sample2990topic
+
+commit
